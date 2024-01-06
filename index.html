@@ -2,19 +2,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Toggle</title>
+    <title>Login page</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!--Username input-box-->
     <div class="userinput-box">
         <input type="text" placeholder="username" id="username">
     </div>
 
+    <!--Password input-box that has eyes_closed.png icon as default and password hidden-->
     <div class="input-box">
         <input type="password" placeholder="password" id="password">
-        <img src="closed_eyes.png" id="eyeicon">
+        <img src="eyes_close.png" id="eyeicon">
     </div>
+
+    <!--Need to add "Login" button and other functions-->
 
 
     <script>
@@ -22,13 +26,14 @@
         let eyeicon = document.getElementById("eyeicon");
         let password = document.getElementById("password");
 
+        <!--By clicking the eyeicon the image changes and password.type changes to text or back to password.-->
         eyeicon.onclick = function(){
             if(password.type == "password"){
                 password.type = "text";
-                eyeicon.src = "opened_eyes.png";
+                eyeicon.src = "eyes_open.png";
             }else{
                 password.type = "password";
-                eyeicon.src = "closed_eyes.png";
+                eyeicon.src = "eyes_close.png";
             }
         }
 

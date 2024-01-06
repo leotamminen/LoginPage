@@ -35,6 +35,6 @@ body {
 }
 
 .userinput-box {
-    /* Add new styles */
+    /* The username input-box has different margin-top than other input-boxes*/
     margin-top: 100px;
 }
