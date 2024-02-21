@@ -12,7 +12,7 @@ body {
 .input-box,
 .userinput-box {
   background: #fff;
-  width: 90%;
+  width: 70%;
   max-width: 500px;
   border-radius: 5px;
   padding: 10px 20px;
@@ -42,7 +42,7 @@ body {
 }
 
 #loginButton {
-  width: 100%;
+  width: 70%;
   max-width: 500px;
   margin: 10px auto;
   padding: 15px 0;
