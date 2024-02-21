@@ -40,3 +40,24 @@ body {
   /* The username input-box has different margin-top than other input-boxes*/
   margin-top: 100px;
 }
+
+#loginButton {
+  width: 100%;
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 15px 0;
+  background-color: #a8d1e6;
+  border: 2px solid #fff;
+  border-radius: 5px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#loginButton:hover {
+  background-color: #90c7e2;
+}
+
+.container {
+  text-align: center;
+}
