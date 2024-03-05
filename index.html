@@ -29,14 +29,14 @@
 
     <div class="container">
       <!--Login button-->
-      <button id="loginButton">Login</button>
+      <button id="loginButton" onclick="handleLogin()">Login</button>
     </div>
 
     <script>
       let eyeicon = document.getElementById("eyeicon");
       let password = document.getElementById("password");
 
-      <!--By clicking the eyeicon the image changes and password.type changes to text or back to password.-->
+      // By clicking the eyeicon the image changes and password.type changes to text or back to password.
       eyeicon.onclick = function () {
         if (password.type == "password") {
           password.type = "text";
@@ -46,6 +46,54 @@
           eyeicon.src = "eyes_close.png";
         }
       };
+
+      // Väliaikainen paikka säilöä käyttäjätunnukset
+      const users = [{ username: "test", password: "test" }];
+
+      // Toimii myös enteriä painamalla
+      document
+        .getElementById("password")
+        .addEventListener("keydown", function (event) {
+          // Tarkistetaan, onko enteriä painettu
+          if (event.key === "Enter") {
+            event.preventDefault();
+            // Haetaan käyttäjänimi ja salasana input-kentistä
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+            // Tarkistetaan, ettei käyttäjänimi tai salasana ole tyhjiä
+            if (!username || !password) {
+              // Jos käyttäjänimi tai salasana on tyhjä, alert
+              alert("Username or password cannot be empty");
+            } else {
+              // Jos ei, kutsutaan handleLogin-funktiota
+              handleLogin();
+            }
+          }
+        });
+
+      function handleLogin() {
+        // Haetaan käyttäjänimi ja salasana input-kentistä
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let isAuthenticated = false;
+
+        // Tarkistetaan käyttäjänimen ja salasanan yhdistelmä käyttäjistä
+        for (let user of users) {
+          // Jos käyttäjänimi ja salasana löytyvät, asetetaan isAuthenticated True ja break
+          if (user.username === username && user.password === password) {
+            isAuthenticated = true;
+            break;
+          }
+        }
+
+        // Jos käyttäjänimi ja/tai salasana ovat väärät, alert
+        if (!isAuthenticated) {
+          alert("Username or password was incorrect");
+        } else {
+          // Uudelleenohjaa eri sivulle jos käyttäjänimi ja salasana on oikein
+          window.location.href = "success.html";
+        }
+      }
     </script>
   </body>
 </html>
